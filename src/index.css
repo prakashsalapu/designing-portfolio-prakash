@@ -34,4 +34,79 @@ body {
   animation: gradientMove 4s ease-in-out infinite;
 }
 
+.marquee {
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
 
+.marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+  will-change: transform;
+}
+
+/* GPU acceleration */
+.marquee,
+.marquee-reverse {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+/* PERFECT LOOP */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+/* Works */
+/* ultra smooth infinite scroll */
+
+.marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.marquee-reverse {
+  animation: marquee-reverse 40s linear infinite;
+  will-change: transform;
+}
+
+/* GPU smooth */
+.marquee,
+.marquee-reverse {
+  transform: translate3d(0,0,0);
+  backface-visibility: hidden;
+}
+
+/* RIGHT → LEFT */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* LEFT → RIGHT */
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

@@ -24,11 +24,11 @@ const socialCards = [
 
 const SocialMini = () => {
   return (
-    <section className="py-8 sm:py-12 bg-gradient-to-br from-[#eaf6ff] via-[#d8f1ff] to-[#eaf6ff]">
+    <section className="py-16 sm:py-20">
       <div className="max-w-5xl mx-auto px-3 sm:px-6">
-        <h2 className="text-center text-lg sm:text-3xl font-bold text-gray-800 mb-6">
+        <h2 className="mb-10 text-center text-3xl font-extrabold text-slate-100 sm:text-5xl">
           Let’s{' '}
-          <span className="bg-gradient-to-r from-sky-400 to-blue-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
             Connect
           </span>
         </h2>
@@ -48,7 +48,7 @@ const SocialMini = () => {
                 w-[80px] h-[65px] sm:w-[120px] sm:h-[100px] 
                 rounded-xl p-2 sm:p-4 
                 flex flex-col justify-center items-center text-center
-                shadow-md hover:shadow-xl transition-shadow
+                border border-white/15 shadow-md hover:shadow-[0_0_35px_rgba(56,189,248,0.28)] transition-all duration-300
               `}
             >
               <div className="flex justify-center items-center">

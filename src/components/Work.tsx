@@ -1,84 +1,119 @@
 'use client';
 import { motion } from 'framer-motion';
 
+/* ---------------- DATA ---------------- */
 
-import work1 from './pic01.webp';
-import work2 from './pic02.webp';
-import work3 from './pic03.webp';
-import work4 from './pic04.webp';
-import work5 from './pic05.webp';
-import work6 from './pic06.webp';
-import work7 from './pic07.webp';
-import work8 from './pic08.webp';
-import work9 from './pic09.webp';
-import work10 from './pic10.webp';
-import work11 from './pic11.webp';
-import work12 from './pic12.webp';
-
-const works = [
-  { title: ' Review/Reaction Thumbnail ', image: work1 },
-  { title: ' Documentary Thumbnail', image: work2 },
-  { title: 'Travel/Lifestyle Thumbnail', image: work3},
-  { title: 'Finance/Trading Thumbnail', image: work4},
-  { title: 'Movie Thumbnail', image: work5 },
-  { title: 'Podcast Thumbnail', image: work6},
-  { title: 'Documentary Thumbnail', image: work7 },
-  { title: 'Documentary Thumbnail ', image: work8 },
-  { title: ' Educational Thumbnail', image: work9 },
-  { title: 'Documentary Thumbnail', image: work10 },
-  { title: 'Documentary Thumbnail', image: work11},
-  { title: 'Review/Reaction Thumbnail', image: work12},
+const youtube = [
+'/assets/pic01.webp','/assets/pic02.webp','/assets/pic03.webp',
+'/assets/pic04.webp','/assets/pic05.webp','/assets/pic06.webp',
+'/assets/pic07.webp','/assets/pic08.webp','/assets/pic09.webp'
 ];
 
-const Work = () => {
-  return (
-    <section
-      id="work"
-      className="py-20 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-[#060442] via-[#049dfb] to-[#060442] text-white scroll-mt-28"
-    >
-      <div className="mb-12 text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white pb-4">
-          My{' '}
-          <span className="bg-gradient-to-r from-[#02caf2] via-[#38bdf8] to-[#a5f3fc] text-transparent bg-clip-text">
-            <strong>Work</strong>
-          </span>
-        </h2>
-      </div>
+const shorts = [
+'/assets/pic10.webp','/assets/pic11.webp','/assets/pic12.webp',
+'/assets/pic01.webp','/assets/pic02.webp'
+];
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-        {works.map((item, idx) => (
-          <motion.a
-            key={idx}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.1 }}
-            whileHover={{
-              scale: 1.03,
-            }}
-            className="group bg-white rounded-xl shadow-md overflow-hidden transition-transform duration-300 w-full max-w-sm mx-auto cursor-pointer hover:shadow-2xl hover:ring-2 hover:ring-cyan-400"
-          >
-            {/* Image */}
-            <div className="w-full aspect-video overflow-hidden">
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-            </div>
+const posters = [
+'/assets/pic03.webp','/assets/pic04.webp','/assets/pic05.webp',
+'/assets/pic06.webp','/assets/pic07.webp'
+];
 
-            {/* Title and YouTube */}
-            <div className="p-4 flex justify-between items-center bg-white">
-              <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-blue-700 transition-colors duration-300">
-                {item.title}
-              </h3>
-            </div>
-          </motion.a>
-        ))}
-      </div>
-    </section>
-  );
+const brands = [
+'/assets/pic08.webp','/assets/pic09.webp','/assets/pic10.webp',
+'/assets/pic11.webp','/assets/pic12.webp'
+];
+
+/* ---------------- CARD ---------------- */
+
+const Card = ({ src, aspect }) => (
+
+  <div className={`w-[280px] ${aspect} shrink-0 overflow-hidden rounded-md`}>
+    <img
+      src={src}
+      className="w-full h-full object-cover"
+    />
+  </div>
+);
+
+/* ---------------- SCROLL ROW ---------------- */
+
+const ScrollRow = ({ items, reverse = false, aspect }) => {
+const loop = [...items, ...items]; // seamless loop
+
+return ( <div className="relative overflow-hidden py-4">
+
+  {/* fade edges */}
+  <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-black to-transparent z-10" />
+  <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-black to-transparent z-10" />
+
+  <div
+    className={`flex gap-6 w-max ${
+      reverse ? 'marquee-reverse' : 'marquee'
+    }`}
+  >
+    {loop.map((img, i) => (
+      <Card key={i} src={img} aspect={aspect} />
+    ))}
+  </div>
+</div>
+
+);
 };
 
-export default Work;
- 
+/* ---------------- MAIN ---------------- */
+
+export default function Work() {
+return ( <section className="bg-black text-white px-4 py-24">
+
+  {/* HEADER */}
+  <h2 className="text-4xl font-bold text-center mb-16">
+    My Work
+  </h2>
+
+  {/* YOUTUBE (GRID ONLY) */}
+      <div className="mb-24 text-center">
+  <h3 className="text-3xl font-semibold mb-12">
+    YouTube Thumbnails
+  </h3>
+
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+{youtube.map((img, i) => (
+  <div
+    key={i}
+    className="w-full aspect-video rounded-lg overflow-hidden"
+  >
+    <img
+      src={img}
+      className="w-full h-full object-cover"
+    />
+  </div>
+))}
+
+  </div>
+</div>
+
+
+  {/* SHORTS (RIGHT → LEFT) */}
+  <div className="mb-16">
+    <h3 className="text-3xl font-semibold text-center mb-10">Shorts / Reels</h3>
+    <ScrollRow items={shorts} aspect="aspect-[9/16]" />
+  </div>
+
+  {/* POSTERS (RIGHT → LEFT) */}
+  <div className="mb-16">
+    <h3 className="text-3xl font-semibold text-center mb-10">Posters</h3>
+    <ScrollRow items={posters} reverse aspect="aspect-[3/4]" />
+  </div>
+
+  {/* BRAND (LEFT → RIGHT) */}
+  <div>
+    <h3 className="text-3xl font-semibold text-center mb-10">Brand Designs</h3>
+    <ScrollRow items={brands}  aspect="aspect-[3/4]" />
+  </div>
+
+</section>
+
+);
+}

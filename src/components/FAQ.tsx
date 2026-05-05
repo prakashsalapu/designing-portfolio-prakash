@@ -37,16 +37,16 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-50 to-slate-200">
+    <section className="py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-50 mb-4">
             Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-blue-800 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent">
               Questions
             </span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-slate-300">
             Everything you need to know about working with me
           </p>
         </div>
@@ -59,14 +59,14 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+              className="overflow-hidden rounded-xl border border-white/10 bg-slate-900/55 shadow-md transition-all duration-300 hover:shadow-[0_0_32px_rgba(56,189,248,0.24)] backdrop-blur-md"
             >
               <button
                 onClick={() => toggleQuestion(index)}
                 className="w-full text-left p-6 focus:outline-none"
               >
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg lg:text-xl font-semibold text-gray-900 pr-4">
+                  <h3 className="text-lg lg:text-xl font-semibold text-slate-100 pr-4">
                     {faq.question}
                   </h3>
                   <motion.div
@@ -75,9 +75,9 @@ const FAQ = () => {
                     transition={{ duration: 0.3 }}
                   >
                     {openQuestion === index ? (
-                      <ChevronUp className="w-6 h-6 text-blue-800" />
+                      <ChevronUp className="w-6 h-6 text-cyan-300" />
                     ) : (
-                      <ChevronDown className="w-6 h-6 text-gray-400" />
+                      <ChevronDown className="w-6 h-6 text-slate-400" />
                     )}
                   </motion.div>
                 </div>
@@ -97,8 +97,8 @@ const FAQ = () => {
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
                     className="px-6 pb-6"
                   >
-                    <div className="border-t border-gray-200 pt-4">
-                      <p className="text-gray-700 leading-relaxed">
+                    <div className="border-t border-white/10 pt-4">
+                      <p className="text-slate-300 leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
