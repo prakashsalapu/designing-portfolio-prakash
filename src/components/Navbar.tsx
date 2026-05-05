@@ -1,105 +1,146 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const navItems = ['Home', 'About', 'Work', 'Services', 'Contact'];
+const navItems = [
+{ label: 'Home', id: 'home' },
+{ label: 'About', id: 'about' },
+{ label: 'Work', id: 'work' },
+{ label: 'Testimonials', id: 'testimonials' },
+{ label: 'Contact', id: 'contact' },
+];
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState('Home');
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const [menuOpen, setMenuOpen] = useState(false);
+const [activeTab, setActiveTab] = useState('home');
+const [menuOpen, setMenuOpen] = useState(false);
 
-  // Scroll behavior (visible on scroll up or top — desktop only)
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const isDesktop = window.innerWidth >= 640;
+// Active section on scroll
+useEffect(() => {
+const onScroll = () => {
+const marker = window.scrollY + 120;
 
-      if (isDesktop) {
-        setIsVisible(currentScrollY < lastScrollY || currentScrollY < 60);
-      } else {
-        setIsVisible(true); // Always visible in mobile
-      }
+  for (const item of navItems) {
+    const section = document.getElementById(item.id);
+    if (!section) continue;
 
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
-
-  // Smooth scroll to section and set active tab
-  const handleClick = (item: string) => {
-    setActiveTab(item);
-    setMenuOpen(false);
-    const section = document.getElementById(item.toLowerCase());
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    if (
+      marker >= section.offsetTop &&
+      marker < section.offsetTop + section.offsetHeight
+    ) {
+      setActiveTab(item.id);
+      break;
     }
-  };
+  }
+};
 
-  return (
-    <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 w-full z-50 transition-all duration-500 ease-in-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
-      }`}
-    >
-      {/* Desktop View */}
-      <div className="hidden sm:flex justify-center">
-        <ul className="flex gap-6 bg-white/90 px-6 py-3 rounded-full shadow-lg backdrop-blur-md">
-          {navItems.map((item) => (
-            <li
-              key={item}
-              onClick={() => handleClick(item)}
-              className={`px-5 py-2 rounded-full cursor-pointer text-[17px] font-medium transition-all duration-300 ${
-                activeTab === item
-                  ? 'bg-gradient-to-r from-blue-400 to-sky-500 text-white shadow-md scale-105'
-                  : 'text-black hover:bg-gradient-to-r hover:from-blue-400 hover:to-sky-500 hover:text-black hover:shadow-md hover:scale-105'
-              }`}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+return () => window.removeEventListener('scroll', onScroll);
 
-      {/* Mobile Hamburger (Always fixed on top right) */}
-      <div className="sm:hidden fixed top-4 right-4 z-[60]">
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="p-2 bg-black/80 backdrop-blur-md rounded-md text-white shadow-md"
-        >
-          {menuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </div>
+}, []);
 
-      {/* Mobile Slide-in Menu */}
-      <div
-        className={`sm:hidden fixed top-14 right-0 w-[70%] bg-white rounded-l-xl shadow-xl z-40 transform transition-transform duration-500 ease-in-out ${
-          menuOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+// Smooth scroll
+const handleClick = (id) => {
+const section = document.getElementById(id);
+if (!section) return;
+
+const y = section.getBoundingClientRect().top + window.scrollY - 80;
+
+window.scrollTo({ top: y, behavior: 'smooth' });
+setActiveTab(id);
+setMenuOpen(false);
+
+};
+
+return ( <header className="fixed left-1/2 top-4 z-50 w-[min(92%,780px)] -translate-x-1/2 px-2">
+
+  {/* NAVBAR */}
+  <nav className="relative overflow-hidden rounded-full border border-white/15 bg-white/10 backdrop-blur-xl shadow-[0_10px_30px_rgba(0,0,0,0.25)]">
+
+    {/* subtle glow */}
+    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_40%),radial-gradient(circle_at_80%_50%,rgba(34,211,238,0.12),transparent_50%)]" />
+
+    <div className="relative flex h-14 items-center justify-between px-3">
+
+      {/* LOGO */}
+      <button
+        onClick={() => handleClick('home')}
+        className="inline-flex items-center gap-2 text-sm font-semibold text-white"
       >
-        <ul className="flex flex-col px-4 py-5 space-y-3 text-[16px] font-medium">
-          {navItems.map((item) => (
-            <li
-              key={item}
-              onClick={() => handleClick(item)}
-              className={`px-4 py-2 rounded-full text-center transition-all duration-300 ease-in-out cursor-pointer ${
-                activeTab === item
-                  ? 'bg-gradient-to-r from-blue-500 to-sky-500 text-white shadow-md'
-                  : 'text-black hover:bg-gradient-to-r hover:from-blue-700 hover:to-sky-700 hover:text-white shadow-md'
-              }`}
-            >
-              {item}
+        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
+          <img
+            src="/favicon.svg"
+            alt="logo"
+            className="h-full w-full rounded-full object-cover"
+          />
+        </span>
+        Prakash
+      </button>
+
+      {/* NAV ITEMS */}
+      <ul className="hidden items-center gap-1 md:flex">
+        {navItems.map((item) => {
+          const active = activeTab === item.id;
+
+          return (
+            <li key={item.id}>
+              <button
+                onClick={() => handleClick(item.id)}
+                className={`rounded-full px-3 py-1.5 text-sm transition-all duration-300 ${
+                  active
+                    ? 'bg-white/20 text-white'
+                    : 'text-white/70 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
             </li>
-          ))}
-        </ul>
-      </div>
-    </nav>
-  );
+          );
+        })}
+      </ul>
+
+      {/* MOBILE MENU BUTTON */}
+      <button
+        aria-label="Toggle menu"
+        onClick={() => setMenuOpen((prev) => !prev)}
+        className="md:hidden rounded-lg bg-white/10 p-2 text-white"
+      >
+        {menuOpen ? <X size={18} /> : <Menu size={18} />}
+      </button>
+
+    </div>
+  </nav>
+
+  {/* MOBILE DROPDOWN */}
+  {menuOpen && (
+    <div className="mt-2 rounded-2xl border border-white/15 bg-white/10 backdrop-blur-xl p-3 shadow-[0_10px_30px_rgba(0,0,0,0.25)] md:hidden">
+      <ul className="space-y-2">
+        {navItems.map((item) => {
+          const active = activeTab === item.id;
+
+          return (
+            <li key={item.id}>
+              <button
+                onClick={() => handleClick(item.id)}
+                className={`w-full rounded-xl px-3 py-2 text-left text-sm transition ${
+                  active
+                    ? 'bg-white/20 text-white'
+                    : 'text-white/70 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {item.label}
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  )}
+
+</header>
+
+);
 };
 
 export default Navbar;
-

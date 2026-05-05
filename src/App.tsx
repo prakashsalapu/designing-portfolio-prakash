@@ -1,4 +1,3 @@
-
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,18 +10,17 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import './index.css';
 
-
 function App() {
   return (
-    <div className="font-sans text-gray-900 bg-white overflow-x-hidden">
+    <div className="overflow-x-hidden bg-gradient-to-br from-[#020202] via-[#06090f] to-[#020202] font-sans text-slate-50">
       <Navbar />
       <Hero />
       <About />
-      <Work/>
+      <Work />
       <Testimonials />
       <Services />
-      <SocialMedia/>
-      <FAQ/>
+      <SocialMedia />
+      <FAQ />
       <Contact />
       <Footer />
     </div>
