@@ -26,6 +26,7 @@ const HeroSection = () => {
   'https://res.cloudinary.com/dozqp1478/image/upload/v1778089979/MW-logo-white_loyehm.avif',
 ];
 
+
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-to-br from-[#020202] via-[#06090f] to-[#020202] px-4 py-28 sm:px-8">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(255,255,255,0.09),transparent_35%),radial-gradient(circle_at_80%_22%,rgba(34,211,238,0.16),transparent_40%),radial-gradient(circle_at_55%_85%,rgba(59,130,246,0.14),transparent_42%)]" />
