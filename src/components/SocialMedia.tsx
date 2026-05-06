@@ -12,7 +12,7 @@ const socialCards = [
     name: 'LinkedIn',
     icon: Linkedin,
     bg: 'bg-gradient-to-br from-blue-600 via-blue-500 to-sky-400',
-    link: 'https://www.linkedin.com/in/iamprakashfx/',
+    link: 'https://www.linkedin.com/in/prakashsalapu',
   },
   {
     name: 'WhatsApp',

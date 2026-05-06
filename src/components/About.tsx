@@ -83,13 +83,13 @@ const AboutStats = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="md:w-1/2 w-full flex justify-center items-center mt-6 md:mt-4 relative"
         >
-          <div className="relative h-[280px] w-[220px] overflow-hidden rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.45),0_0_35px_rgba(56,189,248,0.2)] transition-all duration-500 ease-in-out sm:h-[360px] sm:w-[280px] md:h-[420px] md:w-[360px]">
-            <img
-              src="/assets/Prakash-new-1.jpg"
-              alt="Prakash Profile"
-              className="absolute inset-0 w-full h-full object-cover rounded-xl"
-            />
-          </div>
+        <div className="relative h-[220px] w-[220px] overflow-hidden rounded-full border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.45),0_0_35px_rgba(56,189,248,0.2)] transition-all duration-500 ease-in-out sm:h-[300px] sm:w-[300px] md:h-[380px] md:w-[380px]">
+  <img
+    src="https://res.cloudinary.com/dozqp1478/image/upload/v1778085341/px-logo_lxyugr.avif"
+    alt="Prakash Profile"
+    className="absolute inset-0 w-full h-full object-cover rounded-full"
+  />
+</div>
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ repeat: Infinity, duration: 10, ease: "linear" }}
@@ -108,24 +108,45 @@ const AboutStats = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        className="relative z-10 mt-10 px-2 transition-all duration-700 ease-in-out sm:-mt-4 sm:px-4"
+        className="relative z-10 mt-20 px-2 transition-all duration-700 ease-in-out sm:mt-16 sm:px-4"
       >
-        <div className="relative mx-auto w-full max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-r from-cyan-400/40 to-blue-500/40 p-[1px] shadow-[0_0_35px_rgba(56,189,248,0.2)]">
-          <div className="rounded-[2rem] border border-white/10 bg-slate-900/70 px-6 py-10 backdrop-blur-xl sm:px-12">
-            <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 text-center text-white sm:grid-cols-3">
-              {[
-                { value: 200, suffix: 'K+', label: 'Thumbnail Clicks' },
-                { value: 500, suffix: '+', label: 'Designs Created' },
-                { value: 5, suffix: '+', label: 'Creator Clients' }
-              ].map((statItem, idx) => (
-                <div key={idx} className="text-white transition-all duration-300 hover:scale-105">
-                  <div>{stat({ value: statItem.value, suffix: statItem.suffix, duration: 2 })}</div>
-                  <p className="mt-2 text-sm text-slate-300 sm:text-base">{statItem.label}</p>
-                </div>
-              ))}
-            </div>
+        
+        <div className="relative mx-auto w-full max-w-6xl overflow-hidden rounded-[2rem] bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 p-[1px] shadow-[0_0_40px_rgba(59,130,246,0.18)]">
+
+  {/* INNER BLACK CARD */}
+  <div className="rounded-[2rem] bg-black px-6 py-10 sm:px-12">
+
+    {/* OPTIONAL SOFT INNER GLOW */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_55%)] pointer-events-none" />
+
+    <div className="relative mx-auto grid max-w-5xl grid-cols-1 gap-8 text-center text-white sm:grid-cols-3">
+
+      {[
+        { value: 200, suffix: 'K+', label: 'Thumbnail Clicks' },
+        { value: 500, suffix: '+', label: 'Designs Created' },
+        { value: 5, suffix: '+', label: 'Creator Clients' }
+      ].map((statItem, idx) => (
+        <div
+          key={idx}
+          className="rounded-2xl border border-white/5 bg-white/[0.02] px-4 py-6 transition-all duration-300 hover:scale-105 hover:border-cyan-400/30 hover:bg-white/[0.04]"
+        >
+          <div>
+            {stat({
+              value: statItem.value,
+              suffix: statItem.suffix,
+              duration: 2
+            })}
           </div>
+
+          <p className="mt-2 text-sm text-slate-400 sm:text-base">
+            {statItem.label}
+          </p>
         </div>
+      ))}
+
+    </div>
+  </div>
+</div>
       </motion.div>
     </section>
   );

@@ -66,21 +66,21 @@ Message: ${message}`;
             className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             required
           />
-          <textarea
-            placeholder="Your Message"
-            rows={4}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-            required
-          ></textarea>
+            <textarea
+              placeholder="Your Message"
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              required
+            ></textarea>
 
-          <button
-            type="submit"
-            className="w-full rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 py-3 font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(56,189,248,0.58)]"
-          >
-            Send Message on WhatsApp
-          </button>
+                  <button
+        type="submit"
+        className="w-full rounded-xl bg-gradient-to-r from-green-400 to-green-500 py-3 font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(34,197,94,0.45)]"
+      >
+        Send Message on WhatsApp
+      </button>
         </motion.form>
       </div>
     </section>

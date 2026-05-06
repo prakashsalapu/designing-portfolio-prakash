@@ -3,35 +3,47 @@
 import { Star } from 'lucide-react';
 
 const testimonials = [
-{
-name: 'DOKKULO REVIEWS',
-role: 'Movie Reviewer',
-text: 'His work makes my videos look 10x more professional.',
-image: '/assets/dokkulo-reviews.jpg',
+  {
+  name: 'DOKKULO REVIEWS',
+  role: 'Movie Reviewer',
+  text: 'His thumbnails made my content look more cinematic and highly professional.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778087941/umq4uribdghonn8n2e6m_ffnnfn.avif',
 },
 {
-name: 'BSDVP TECH TELUGU',
-role: 'EdTech YouTuber',
-text: 'Clean, standout designs with impressive speed.',
-image: '/assets/bsdvp.jpg',
+  name: 'BSDVP TECH TELUGU',
+  role: 'EdTech YouTuber',
+  text: 'Clean and impactful designs that perfectly match my content and audience.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778087947/ryml1fboucv8je8nzvnr_lzmutf.avif',
 },
 {
-name: 'ASK ABHI NOW',
-role: 'EdTech YouTuber',
-text: 'Eye-catching thumbnails that boost engagement.',
-image: '/assets/ask-abhi-now.jpg',
+  name: 'ASK ABHI NOW',
+  role: 'EdTech YouTuber',
+  text: 'Creative thumbnails that improved engagement and gave my channel a fresh look.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778087942/bqxbb7axqclpticn6btn_oovg8c.avif',
 },
 {
-name: 'RGH CREATIONS',
-role: 'Short Film Maker',
-text: 'Cinematic thumbnails that grab attention instantly.',
-image: '/assets/brgh-entertainments.jpg',
+  name: 'RGH CREATIONS',
+  role: 'Short Film Maker',
+  text: 'Cinematic visuals and strong composition that instantly grab viewer attention.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778087940/x31i1j15jjkpftfixlg1_o4zdwk.avif',
 },
 {
-name: 'NITHIN KOLLURU',
-role: 'EdTech YouTuber',
-text: 'Turns rough ideas into powerful visuals.',
-image: '/assets/nithin-kolluru.jpg',
+  name: 'MILK WONDERS',
+  role: 'Dairy Brand',
+  text: 'Professional branding designs that made our products look modern and premium.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778089979/MW-logo-white_loyehm.avif',
+},
+{
+  name: 'NITHIN KOLLURU',
+  role: 'EdTech YouTuber',
+  text: 'Turns simple concepts into eye-catching visuals that feel clean and premium.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778087945/rumrsyi0zvhlwphqrlux_ftbqlq.avif',
+},
+{
+  name: 'Tech Jaswanth',
+  role: 'Tech Content Creator',
+  text: 'Delivered clean, high-converting thumbnails that instantly improved the overall brand feel of my content.',
+  image: 'https://res.cloudinary.com/dozqp1478/image/upload/v1778089731/channels4_profile_ozd5t7.avif',
 },
 ];
 
@@ -96,7 +108,7 @@ return ( <div className="relative overflow-hidden">
 };
 
 export default function Testimonials() {
-return ( <section className="py-20 px-4 bg-black text-white">
+return ( <section className="py-20 px-4 bg-black text-white" id="testimonials">
 
 
   <div className="max-w-6xl mx-auto text-center mb-10">

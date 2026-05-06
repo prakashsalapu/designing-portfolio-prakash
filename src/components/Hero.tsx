@@ -65,12 +65,14 @@ const HeroSection = () => {
           >
             View My Work
           </a>
-          <a
-            href="#contact"
-            className="rounded-full border border-white/20 bg-white/10 px-7 py-3 text-sm font-semibold text-slate-100 transition-all duration-300 hover:scale-105 hover:bg-white/20"
-          >
-            Book a Call
-          </a>
+            <a
+        href="https://wa.me/919000157795"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="rounded-full border border-green-400/30 bg-green-500 px-7 py-3 text-sm font-semibold text-black transition-all duration-300 hover:scale-105 hover:bg-green-400 hover:shadow-[0_0_25px_rgba(34,197,94,0.45)]"
+      >
+        Chat on WhatsApp →
+      </a>
         </motion.div>
 
         <motion.div
@@ -103,7 +105,7 @@ const HeroSection = () => {
           transition={{ delay: 0.34, duration: 0.6 }}
           className="mx-auto mt-14 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3"
         >
-          {['YouTube', 'Instagram', 'LinkedIn', 'Behance', 'Dribbble'].map((logo) => (
+          {['YouTube', 'Instagram', 'LinkedIn'].map((logo) => (
             <span
               key={logo}
               className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300/50 transition duration-300 hover:text-slate-200/85"

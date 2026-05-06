@@ -61,7 +61,7 @@ return ( <header className="fixed left-1/2 top-4 z-50 w-[min(92%,780px)] -transl
     {/* subtle glow */}
     <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.15),transparent_40%),radial-gradient(circle_at_80%_50%,rgba(34,211,238,0.12),transparent_50%)]" />
 
-    <div className="relative flex h-14 items-center justify-between px-3">
+    <div className="relative flex h-14 items-center justify-between px-5">
 
       {/* LOGO */}
       <button
@@ -70,7 +70,7 @@ return ( <header className="fixed left-1/2 top-4 z-50 w-[min(92%,780px)] -transl
       >
         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
           <img
-            src="/favicon.svg"
+            src="https://res.cloudinary.com/dozqp1478/image/upload/v1778087247/px-logo_aitivt.svg"
             alt="logo"
             className="h-full w-full rounded-full object-cover"
           />
@@ -78,28 +78,44 @@ return ( <header className="fixed left-1/2 top-4 z-50 w-[min(92%,780px)] -transl
         Prakash
       </button>
 
-      {/* NAV ITEMS */}
-      <ul className="hidden items-center gap-1 md:flex">
-        {navItems.map((item) => {
-          const active = activeTab === item.id;
+        {/* NAV ITEMS */}
+    <ul className="hidden items-center gap-10 px-5 md:flex">
+      {navItems.map((item) => {
+        const active = activeTab === item.id;
 
-          return (
-            <li key={item.id}>
-              <button
-                onClick={() => handleClick(item.id)}
-                className={`rounded-full px-3 py-1.5 text-sm transition-all duration-300 ${
+        return (
+          <li key={item.id} className="relative">
+            <button
+              onClick={() => handleClick(item.id)}
+              className={`relative pb-2 text-sm font-medium transition-all duration-300 ${
+                item.id === 'contact'
+                  ? active
+                    ? 'text-green-400'
+                    : 'text-green-500 hover:text-green-400'
+                  : active
+                  ? 'text-white'
+                  : 'text-white/65 hover:text-white'
+              }`}
+            >
+              {item.label}
+
+              {/* ACTIVE UNDERLINE */}
+              <span
+                className={`absolute left-0 -bottom-[2px] h-[2px] rounded-full bg-gradient-to-r transition-all duration-300 ${
+                  item.id === 'contact'
+                    ? 'from-green-400 to-green-500'
+                    : 'from-cyan-400 to-blue-500'
+                } ${
                   active
-                    ? 'bg-white/20 text-white'
-                    : 'text-white/70 hover:bg-white/10 hover:text-white'
+                    ? 'w-full opacity-100'
+                    : 'w-0 opacity-0 group-hover:w-full'
                 }`}
-              >
-                {item.label}
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-
+              />
+            </button>
+          </li>
+        );
+      })}
+    </ul>
       {/* MOBILE MENU BUTTON */}
       <button
         aria-label="Toggle menu"
