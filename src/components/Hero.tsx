@@ -13,7 +13,18 @@ const fadeUp = {
 };
 
 const HeroSection = () => {
-  const avatars = ['/assets/dokkulo-reviews.jpg', '/assets/bsdvp.jpg', '/assets/ask-abhi-now.jpg', '/assets/nithin-kolluru.jpg'];
+  const avatars = [
+    'https://res.cloudinary.com/dozqp1478/image/upload/f_auto,q_auto,w_200/v1778087941/umq4uribdghonn8n2e6m_ffnnfn.avif',
+    
+    'https://res.cloudinary.com/dozqp1478/image/upload/v1778089731/channels4_profile_ozd5t7.avif',
+
+  'https://res.cloudinary.com/dozqp1478/image/upload/f_auto,q_auto,w_200/v1778087947/ryml1fboucv8je8nzvnr_lzmutf.avif',
+
+
+  'https://res.cloudinary.com/dozqp1478/image/upload/f_auto,q_auto,w_200/v1778087945/rumrsyi0zvhlwphqrlux_ftbqlq.avif',
+  
+  'https://res.cloudinary.com/dozqp1478/image/upload/v1778089979/MW-logo-white_loyehm.avif',
+];
 
   return (
     <section id="home" className="relative overflow-hidden bg-gradient-to-br from-[#020202] via-[#06090f] to-[#020202] px-4 py-28 sm:px-8">
